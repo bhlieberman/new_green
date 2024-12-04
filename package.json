@@ -29,6 +29,7 @@
 	"dependencies": {
 		"lucide-svelte": "^0.438.0",
 		"luxon": "^3.5.0",
-		"polka": "^0.5.2"
+		"polka": "^0.5.2",
+		"ramda": "^0.30.1"
 	}
 }

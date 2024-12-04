@@ -2,11 +2,11 @@ import { join } from 'path'
 
 import { skeleton } from '@skeletonlabs/tw-plugin';
 
-import {myCustomTheme} from './custom-theme.js'
+import { myCustomTheme } from './custom-theme.js'
 
 /** @type {import('tailwindcss').Config} */
 export default {
-  darkMode: 'selector',
+  darkMode: 'class',
   content: ["./src/**/*.{html,js,svelte,ts}",
     join(require.resolve(
       '@skeletonlabs/skeleton'
@@ -14,7 +14,7 @@ export default {
   ],
 
   theme: {
-    extend: { fontFamily: ["Noto Sans", "sans-serif"] }
+    extend: { fontFamily: ["Bodoni Moda", "sans-serif"], rotate: { '-15': '-15deg' } }
   },
 
   plugins: [require("@tailwindcss/typography"), skeleton({

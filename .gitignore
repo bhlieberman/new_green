@@ -5,6 +5,8 @@ node_modules
 .vercel
 /.svelte-kit
 /build
+/backend/_build
+/backend/_opam
 /static/*.mov
 src/lib/assets/*.jpg
 output.css

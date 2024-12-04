@@ -1,46 +1,87 @@
 <script>
-  import {DateTime} from 'luxon'
-  import {readable, writable} from 'svelte/store'
-  import {lang} from '../stores'
-
-  let debutTime = 
-    // need to find a way to derive this?
-    writable(($lang == "en" ?
-        DateTime.fromISO("2024-09-22", {locale: "en"}) : DateTime.fromISO("2024-09-30", {locale: "fr"})))
-    
-
-  let debutStore = readable(
-    $debutTime
-    .toFormat("d 'd'a'y''s': h 'h'our's' : m 'm'inute's' : s 's'econ'd''s'"), (set) => {
-    set(
-      $debutTime
-        .diffNow("days")
-        .toFormat("d 'd'a'y''s': h 'h'our's' : m 'm'inute's' : s 's'econ'd''s'"))
-
-    const interval = setInterval(() => {
-      set(
-        $debutTime
-          .diffNow("days")
-          .toFormat("d 'd'a'y''s': h 'h'our's' : m 'm'inute's' : s 's'econ'd''s'"))
-    }, 1000)
-
-    return () => clearInterval(interval)
-  })
+  import { ArrowRightCircle } from "lucide-svelte";
 </script>
 
-<div class="">
+<nav class="list-nav">
   <div class="card p-4 flex justify-center">
-    <section class="flex flex-col justify-center items-center">
-      <h2 class="h1 m-2">Countdown</h2>
-      <span class="h4">
-        <p class="inline" bind:innerText={$debutStore} contenteditable />
-      </span>
-      <p class="first-letter:text-lg prose">
-        <i>The New Green</i> is a seven-episode docu-series...
-      </p>
-      <p>
-        It will debut on {$debutTime.toLocaleString()}
-      </p>
-    </section>
+    <dl class="list-dl">
+      <div class="btn variant-outline-primary">
+        <a href="/watch/intro">
+          <span class="badge bg-primary-500"
+            ><ArrowRightCircle></ArrowRightCircle></span
+          >
+          <span class="flex-auto">
+            <dt>Introduction</dt>
+            <dd>Episode one</dd>
+          </span>
+        </a>
+      </div>
+      <div class="btn variant-outline-primary">
+        <a href="/watch/nyc/1">
+          <span class="badge bg-primary-500"
+            ><ArrowRightCircle></ArrowRightCircle></span
+          >
+          <span class="flex-auto">
+            <dt>New York, Part 1</dt>
+            <dd>Episode two</dd>
+          </span>
+        </a>
+      </div>
+      <div class="btn variant-outline-primary">
+        <a href="/watch/nyc/2">
+          <span class="badge bg-primary-500"
+            ><ArrowRightCircle></ArrowRightCircle></span
+          >
+          <span class="flex-auto">
+            <dt>New York, Part 2</dt>
+            <dd>Episode three</dd>
+          </span>
+        </a>
+      </div>
+      <div class="btn variant-outline-primary">
+        <a href="#">
+          <span class="badge bg-primary-500"
+            ><ArrowRightCircle></ArrowRightCircle></span
+          >
+          <span class="flex-auto">
+            <dt>Boston, Part 1</dt>
+            <dd>Episode four</dd>
+          </span>
+        </a>
+      </div>
+      <div class="btn variant-outline-primary">
+        <a href="#">
+          <span class="badge bg-primary-500"
+            ><ArrowRightCircle></ArrowRightCircle></span
+          >
+          <span class="flex-auto">
+            <dt>New Orleans, Part 1</dt>
+            <dd>Episode five</dd>
+          </span>
+        </a>
+      </div>
+      <div class="btn variant-outline-primary">
+        <a href="#">
+          <span class="badge bg-primary-500"
+            ><ArrowRightCircle></ArrowRightCircle></span
+          >
+          <span class="flex-auto">
+            <dt>New Orleans, Part 2</dt>
+            <dd>Episode six</dd>
+          </span>
+        </a>
+      </div>
+      <div class="btn variant-outline-primary">
+        <a href="#">
+          <span class="badge bg-primary-500"
+            ><ArrowRightCircle></ArrowRightCircle></span
+          >
+          <span class="flex-auto">
+            <dt>New Orleans, Part 3</dt>
+            <dd>Episode seven</dd>
+          </span>
+        </a>
+      </div>
+    </dl>
   </div>
-</div>
+</nav>
