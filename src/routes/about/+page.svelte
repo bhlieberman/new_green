@@ -14,7 +14,7 @@
   <div class="card-body">
     <div class="grid grid-cols-3">
       <div></div>
-      <div class="flex flex-col justify-center items-center">
+      <div class="flex flex-col justify-center">
         <p class="py-2">
           {#if $lang == "en"}
             My name is Naémie, I’m a film student and I wanted to do this

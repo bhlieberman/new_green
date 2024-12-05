@@ -14,9 +14,7 @@
   import Check from "lucide-svelte/icons/check";
   import "../output.css";
   import { lang } from "./stores.js";
-
-  import * as R from "ramda";
-
+  
   let translations = {
     watch: "voir",
     home: "accueil",

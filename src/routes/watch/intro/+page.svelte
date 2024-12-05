@@ -6,7 +6,6 @@
   import PostIt from "../../PostIt.svelte";
   import Comments from "../../Comments.svelte";
   import { translations, extractText } from "$lib/i18n";
-    import { VideoOff } from "lucide-svelte";
 
   let postItText =
     "The Amazon, sometimes called the Green Lungs of the Earth, has lost a forest area equivalent to 14,05 times the size of N.Y, from August 2019 to July 2020 (Prodes)".toUpperCase();
