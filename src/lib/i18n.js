@@ -1,5 +1,9 @@
 export let translations = {
     'nyc': {
+        'intro': {
+            'fr': "Le vert était la couleur des arbres et de leurs feuilles, aujourd'hui c'est la couleur du dollar.",
+            'en': "Green was the color of trees and their leaves, now it's the color of USD."
+        },
         'episode_1': {
             'fr': ["L'Amazonie, parfois appelée le poumon vert de la Terre, a perdu une surface forestière équivalente à 14,05 fois la taille de l'État de New York, d'août 2019 à juillet 2020 (Prodes)"],
             'en': ["The Amazon, sometimes called the Green Lungs of the Earth, has lost a forest area equivalent to 14,05 times the size of N.Y, from August 2019 to July 2020 (Prodes)"]

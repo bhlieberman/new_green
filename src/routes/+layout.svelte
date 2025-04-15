@@ -1,45 +1,82 @@
 <script>
+  // @ts-nocheck
+
   import {
     AppBar,
     LightSwitch,
-    Tab,
     TabGroup,
     TabAnchor,
   } from "@skeletonlabs/skeleton";
+  import { writable } from "svelte/store";
   import { page } from "$app/stores";
   import Film from "lucide-svelte/icons/film";
   import House from "lucide-svelte/icons/house";
   import LeafyGreen from "lucide-svelte/icons/leafy-green";
+  import { MessageCircle } from "lucide-svelte";
   import Scroll from "lucide-svelte/icons/scroll";
-  import Check from "lucide-svelte/icons/check";
-  import "../output.css";
+  import "../build.css";
+  import LanguageSettings from "./LanguageSettings.svelte";
+  import Jameson from "./Jameson.svelte";
   import { lang } from "./stores.js";
-  
+  import {
+    initializeStores,
+    Modal,
+    getModalStore,
+  } from "@skeletonlabs/skeleton";
+  import { onMount } from "svelte";
+  import ModalComponent from "./ModalComponent.svelte";
+
   let translations = {
     watch: "voir",
     home: "accueil",
     about: "sur ce site",
   };
 
+  let modalOpen = writable(false);
+
+  initializeStores();
+  const modalStore = getModalStore();
+
+  let pageAlreadyLoaded = writable(false);
+
+  let modalRegistry = {
+    welcomeModal: { ref: ModalComponent },
+  };
+
+  let modalSettings = {
+    type: "component",
+    component: "welcomeModal",
+  };
+
+  onMount(() => {
+    if (!$pageAlreadyLoaded) {
+      modalStore.trigger(modalSettings);
+      pageAlreadyLoaded.set(true);
+    }
+  });
 </script>
 
-<!-- need to add a Navigation Tabs component for mobile viewing -->
-<TabGroup>
-  <TabAnchor selected={$page.url.pathname === "/watch"}>
+<Modal
+  components={modalRegistry}
+  triggerBase="btn preset-tonal"
+  contentBase="card bg-surface-100-900 p-4 space-y-4 shadow-xl max-w-screen-sm"
+  backdropClasses="backdrop-blur-sm"
+></Modal>
+
+<TabGroup class="sm:max-w-screen-sm md:max-w-screen-md border-none">
+  <TabAnchor selected={$page.url.pathname === "/"}>
     <svelte:fragment slot="lead">
-      <a href="/watch">
+      <a href="/">
         <div class="flex justify-center">
-          <Film />
+          <House />
         </div>
         <span
-          >{#if $lang == "en"}Watch{:else if $lang == "fr"}Voir{/if}</span
+          >{#if $lang == "en"}Home{:else if $lang == "fr"}Accueil{/if}</span
         >
       </a>
     </svelte:fragment>
   </TabAnchor>
-  <TabAnchor
-    selected={$page.url.pathname === "/about"}
-  >
+  <TabAnchor selected={$page.url.pathname === "/about"}>
     <svelte:fragment slot="lead">
       <a href="/about">
         <div class="flex justify-center">
@@ -51,17 +88,15 @@
       </a>
     </svelte:fragment>
   </TabAnchor>
-  <TabAnchor
-    selected={$page.url.pathname === "/"}
-  >
+  <TabAnchor>
     <svelte:fragment slot="lead">
-      <a href="/">
+      <a href="/comments">
         <div class="flex justify-center">
-          <House />
+          <MessageCircle />
         </div>
-        <span
-          >{#if $lang == "en"}Home{:else if $lang == "fr"}Accueil{/if}</span
-        >
+        <span>
+          {#if $lang == "en"}Comments{:else if $lang == "fr"}Commentaires{/if}
+        </span>
       </a>
     </svelte:fragment>
   </TabAnchor>
@@ -76,23 +111,13 @@
     </a>
   </svelte:fragment>
   <svelte:fragment slot="headline">
-  <h1>THE NEW GREEN</h1>
+    <div class="flex flex-col space-y-2">
+      <h1 class="text-3xl">THE NEW GREEN</h1>
+      <Jameson></Jameson>
+    </div>
   </svelte:fragment>
   <svelte:fragment slot="trail">
-    {#each ["en", "fr"] as l}
-      <button
-        id="lang-chip"
-        class="chip {$lang == l ? 'variant-filled' : 'variant-soft'}"
-        on:click={(_) => {
-          lang.set(l);
-        }}
-      >
-        {#if $lang == l}
-          <span><Check size={15} /></span>
-        {/if}
-        <span>{l}</span>
-      </button>
-    {/each}
+    <LanguageSettings></LanguageSettings>
   </svelte:fragment>
 </AppBar>
 <slot />

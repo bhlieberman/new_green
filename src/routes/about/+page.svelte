@@ -1,21 +1,24 @@
 <script>
   import { lang } from "../stores.js";
-  import PostIt from "../PostIt.svelte";
+  import Attributions from "../watch/Attributions.svelte";
+
+  import { TriangleAlert } from "lucide-svelte";
 </script>
 
-<div class="card flex flex-col justify-center items-center">
-  <div class="card-title h1 p-2">
-    {#if $lang == "en"}
-      ABOUT
-    {:else if $lang == "fr"}
-      SUR CE SITE
-    {/if}
-  </div>
-  <div class="card-body">
-    <div class="grid grid-cols-3">
-      <div></div>
-      <div class="flex flex-col justify-center">
-        <p class="py-2">
+<div class="flex flex-col">
+  <div class="flex flex-col justify-center items-center">
+    <div class="bg-surface-900 flex flex-col">
+      <div class="h1 self-center p-2">
+        {#if $lang == "en"}
+          ABOUT
+        {:else if $lang == "fr"}
+          SUR CE SITE
+        {/if}
+      </div>
+      <div
+        class="flex flex-col justify-center text-center lg:w-1/2 self-center"
+      >
+        <p class="p-2">
           {#if $lang == "en"}
             My name is Naémie, I’m a film student and I wanted to do this
             project because I was afraid for my future, the close future.
@@ -24,15 +27,14 @@
             commencer ce projet, parce que j’avais peur, peur pour mon futur.
           {/if}
         </p>
-        <p class="py-2 text-wrap">
+        <p class="p-2 text-wrap">
           {#if $lang == "en"}
             So I left school for a year and began my journey.
           {:else if $lang == "fr"}
             J’ai donc arrêté la fac pendant un an et j’ai commencé ce projet.
           {/if}
         </p>
-        <hr />
-        <p class="py-2">
+        <p class="p-2">
           {#if $lang == "en"}
             Climate change is the battle of our century and we still have a
             chance to make a change. It’s also an opportunity to rethink our
@@ -44,12 +46,11 @@
             opportunité pour repenser notre connexion au monde et supprimer les
             inégalités sociales, qui sont au centre du changement climatique. Il
             y a besoin d’une prise de conscience de masse sur ce que nous
-            risquons d’affronter, alors regarder le documentaire et partager le
-            à d’autres !
+            risquons d’affronter, alors regarde le documentaire et partage-le à
+            d’autres !
           {/if}
         </p>
-        <hr />
-        <p class="py-2 text-wrap">
+        <p class="p-2 text-wrap">
           {#if $lang == "en"}
             We need more awareness on what we are facing. So watch this and
             share it with others ! This production is completely indepedent and
@@ -61,7 +62,31 @@
             possible et ma famille pour leurs soutiens. Merci.
           {/if}
         </p>
+        <div class="alert variant-ghost-primary w-3/4 self-center">
+          <div class="alert-message flex">
+            <div class="flex items-center">
+              <TriangleAlert></TriangleAlert>
+            </div>
+            <div class="flex text-center">
+              <p class="p-2 text-wrap self-center">
+                {#if $lang == "en"}
+                  Donald Trump will resume the US presidency in 2025 and global
+                  climate policy will suffer.
+                {:else if $lang == "fr"}
+                  Donald Trump reprendra la présidence des États-Unis en 2025 et
+                  la politique climatique mondiale en pâtira.
+                {/if}
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
+  </div>
+  <div class="bg-surface-900 mt-10 flex flex-col w-1/2 self-center">
+    <div class="h1 self-center p-2">ATTRIBUTIONS</div>
+    <div class="self-center">
+      <Attributions></Attributions>
     </div>
   </div>
 </div>

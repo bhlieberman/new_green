@@ -7,9 +7,10 @@ node_modules
 /build
 /backend/_build
 /backend/_opam
-/static/*.mov
+/static/*
 src/lib/assets/*.jpg
 output.css
+build.css
 
 # OS
 .DS_Store
