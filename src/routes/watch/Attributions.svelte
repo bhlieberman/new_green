@@ -1,12 +1,14 @@
 <script>
 </script>
 
-<dl class="list-dl">
-  <div>
-    <span class="flex-auto"
-      ><dt class="font-bold">Episode 1</dt>
+<dl class="list-dl flex flex-col">
+  <div class="">
+    <span class="flex flex-col"
+      ><dt class="font-bold self-center">Episode 1</dt>
       <dd class="p-2">
-        https://www.flickr.com/photos/usaidethiopia/19686204274
+        <a href="https://www.flickr.com/photos/usaidethiopia/19686204274"
+          >Coffee Bean Sorting</a
+        >
       </dd>
       <dd class="p-2">
         <a href="https://creativecommons.org/licenses/by-sa/4.0">
@@ -14,33 +16,37 @@
         </a>
       </dd>
       <dd class="p-2">
-        <a href="https://flic.kr/p/2nSGnrv">https://flic.kr/p/2nSGnrv</a>
+        <a href="https://flic.kr/p/2nSGnrv"
+          >Hurricane Ian FWC Response 2022 155</a
+        >
       </dd>
       <dd class="p-2">
-        <a href="https://flic.kr/p/2nSGnwL">https://flic.kr/p/2nSGnwL </a>
+        <a href="https://flic.kr/p/2nSGnwL"
+          >Hurricane Ian FWC Response 2022 145</a
+        >
       </dd>
       <dd class="p-2">
-        <a href="https://flic.kr/p/2nSBs17">https://flic.kr/p/2nSBs17 </a>
+        <a href="https://flic.kr/p/2nSBs17"
+          >Hurricane Ian FWC Response 2022 125</a
+        >
       </dd>
       <dd class="p-2">
-        <a href="https://flic.kr/p/2nSFvkN">https://flic.kr/p/2nSFvkN </a>
+        <a href="https://flic.kr/p/2nSFvkN"
+          >Hurricane Ian FWC Response 2022 112</a
+        >
       </dd>
       <dd class="p-2">
         <a href="https://commons.wikimedia.org/w/index.php?curid=123565734">
-          By PCHS-NJROTC - Own work, CC BY-SA 4.0
+          Hurricane Ian Aftermath in North Port, Florida
         </a>
       </dd>
       <dd class="p-2">
-        By The National Guard - CC BY 2.0
-        <br />
         <a
-          href="
-">https://www.flickr.com/photos/thenationalguard/53041110864/</a
+          href="https://www.flickr.com/photos/thenationalguard/53041110864/
+"
         >
-        <br />
-        <a href="https://commons.wikimedia.org/w/index.php?curid=135041120">
-          https://commons.wikimedia.org/w/index.php?curid=135041120</a
-        >
+          Vermont National Guard
+        </a>
       </dd>
     </span>
   </div>
@@ -50,20 +56,20 @@
       <dd class="p-2">
         <a
           href="https://www.flickr.com/photos/justaslice/4249483340
-">https://www.flickr.com/photos/justaslice/4249483340</a
+">Downtown Los Angeles 2010</a
         >
       </dd>
       <dd class="p-2">
         <a
           href="https://www.flickr.com/photos/kenlund/15036270823
 "
-          >https://www.flickr.com/photos/kenlund/15036270823
+          >Midtown, San Diego, California by Ken Lund
         </a>
       </dd>
       <dd class="p-2">
         <a
           href="https://commons.wikimedia.org/w/index.php?curid=26129408
-">By Erikoinentunnus - Own work, CC BY-SA 3.0</a
+">Vacuum Packaging Machine by Erikoinentunnus</a
         >
       </dd>
     </span>
@@ -74,7 +80,8 @@
       <dd class="p-2">
         <a
           href="https://digitalcollections.nypl.org/items/476e2bd0-a762-0133-012b-00505686d14e"
-          >https://digitalcollections.nypl.org/items/476e2bd0-a762-0133-012b-00505686d14e</a
+          >The Lexington Avenue El structure in Brooklyn, N.Y. (near DeKalb
+          Avenue)</a
         >
       </dd></span
     >
@@ -83,15 +90,8 @@
     <span class="flex-auto"
       ><dt class="font-bold">Episode 4</dt>
       <dd class="p-2">
-        By The National Guard - CC BY 2.0
-        <br />
-        <a
-          href="
-">https://www.flickr.com/photos/thenationalguard/53041110864/</a
-        >
-        <br />
-        <a href="https://commons.wikimedia.org/w/index.php?curid=135041120">
-          https://commons.wikimedia.org/w/index.php?curid=135041120</a
+        <a href="https://www.flickr.com/photos/thenationalguard/53041110864/"
+          >Vermont National Guard</a
         >
       </dd>
     </span>

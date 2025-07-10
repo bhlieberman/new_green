@@ -14,7 +14,7 @@
   import LeafyGreen from "lucide-svelte/icons/leafy-green";
   import { MessageCircle } from "lucide-svelte";
   import Scroll from "lucide-svelte/icons/scroll";
-  import "../build.css";
+  import "../output.css"; /*change to build.css for deploy*/
   import LanguageSettings from "./LanguageSettings.svelte";
   import Jameson from "./Jameson.svelte";
   import { lang } from "./stores.js";

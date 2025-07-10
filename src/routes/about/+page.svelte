@@ -7,7 +7,7 @@
 
 <div class="flex flex-col">
   <div class="flex flex-col justify-center items-center">
-    <div class="bg-surface-900 flex flex-col">
+    <div class="bg-surface-900 flex flex-col w-3/4">
       <div class="h1 self-center p-2">
         {#if $lang == "en"}
           ABOUT
@@ -62,7 +62,7 @@
             possible et ma famille pour leurs soutiens. Merci.
           {/if}
         </p>
-        <div class="alert variant-ghost-primary w-3/4 self-center">
+        <!-- <div class="alert variant-ghost-primary w-3/4 self-center">
           <div class="alert-message flex">
             <div class="flex items-center">
               <TriangleAlert></TriangleAlert>
@@ -77,9 +77,9 @@
                   la politique climatique mondiale en pâtira.
                 {/if}
               </p>
-            </div>
+            </div> 
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>

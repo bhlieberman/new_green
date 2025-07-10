@@ -2,62 +2,47 @@
   // @ts-nocheck
 
   import { goto, invalidateAll } from "$app/navigation";
-  import { writable } from "svelte/store";
-  import db from "../database";
-  import { onMount } from "svelte";
 
-  let comments = writable([]);
-
-  let commentText = "";
-  let userText = "";
-
-  onMount(async () => {
-    comments.set(await db.comments.all());
-  });
-
-  async function addComment(user_name) {
-    const comment = await db.comments.create({
-      comment: commentText,
-      user_name: user_name,
-    });
-    commentText = "";
-    userText = "";
-    comments.set(await db.comments.all());
-  }
+  import { lang } from "../stores.js";
 </script>
 
 <div class="flex justify-center">
   <div class="flex flex-col self-center justify-center w-1/2">
-    <div class="w-full">
-      <ul class="flex flex-col justify-center items-center my-10 rounded-lg shadow divide-y divide-gray-200 mw-md">
-        {#each $comments as comment}
-          <li class="my-2 px-6 py-4 border-secondary-100 bg-warning-300 text-black border-0 rounded-none">
-            <span>{new Date(comment.created_at).toLocaleDateString()}</span>
-            <span class="font-semibold text-md">{comment.user_name} wrote:</span>
-            <span class="text-md block">
-              {comment.comment_text}
-            </span>
-          </li>
-        {:else}
-          <li class="text-lg">Be the first to comment...</li>
-        {/each}
-      </ul>
-    </div>
+    {#if $lang == "en"}
+      <h2 class="h1 self-center mt-2">COMMENTS</h2>
+    {:else if $lang == "fr"}
+      <h2 class="h1 self-center mt-2">COMMENTAIRES</h2>
+    {/if}
     <div class="">
       <div class="border-0 rounded-none h-56">
         <div class="flex flex-col justify-center items-center card-body">
-          <p class="text-lg my-2">Watch the film and please leave a comment below!</p>
-          <input class="my-2" placeholder="Your name" bind:value={userText} rows="1" />
-          <textarea
-            bind:value={commentText}
-            class="border-0 rounded-none p-1 m-2"
-            name="prompt"
-            id="prompt"
-            placeholder="Leave a comment..."
-          />
-          <button on:click={() => addComment(userText)} class="self-center btn variant-filled"
-            >Add</button
-          >
+          <div class="flex flex-col mt-2">
+            {#if $lang == "en"}
+              <p>
+                If you liked the film and want to leave a comment, please reach
+                out to me!
+              </p>
+              <p>
+                I can be reached by <a
+                  class="text-cyan-500"
+                  href="mailto:naemiecohen@gmail.com">email</a
+                >
+                or on Instagram <i class="text-cyan-500">@naemiecohen</i>!
+              </p>
+            {:else if $lang == "fr"}
+              <p>
+                Si vous avez aimé le film et souhaitez laisser un commentaire,
+                n'hésitez pas à m'envoyer un courriel à l'adresse !
+              </p>
+              <p>
+                Je suis joignable par <a
+                  class="text-cyan-500"
+                  href="mailto:naemiecohen@gmail.com">email</a
+                >
+                ou sur Instagram <a href="https://www.instagram.com/naemiecohen?utm_source=ig_web_button_share_sheet&igsh=OGtudHhmYmVhMTM5"><i class="text-cyan-500">@naemiecohen</i></a>!
+              </p>
+            {/if}
+          </div>
         </div>
       </div>
     </div>
