@@ -120,9 +120,9 @@
           <div class="hover:opacity-60">
             <p class="h3">
               {#if $lang == "fr"}
-                Disponible le 5 juillet 2025
+                Disponible bientôt!
               {:else if $lang == "en"}
-                Coming July 5, 2025
+                Coming soon!
               {/if}
             </p>
             <Construction></Construction>
